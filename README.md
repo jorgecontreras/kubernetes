@@ -46,11 +46,11 @@ selectors:
 
 ```
   kubectl get pods --selector env=production --show-labels
-  kubectl get pods --selector dev-lead=karthik,env=staging --show-labels
-  kubectl get pods --selector dev-lead!=karthik,env=staging --show-labels
+  kubectl get pods --selector dev-lead=jorge,env=staging --show-labels
+  kubectl get pods --selector dev-lead!=jorge,env=staging --show-labels
   kubectl get pods -l 'release-version in (1.0,2.0)' --show-labels
 ```
 
 delete pods with label:
 
-`kubectl delete pods -l dev-lead=karthik`
+`kubectl delete pods -l dev-lead=jorge`
