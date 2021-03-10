@@ -1,5 +1,7 @@
 # kubernetes
 
+## Components
+
 **Pod** 
 
 Collections of containers collocated in a single machine
@@ -18,3 +20,37 @@ The primary node agent that runs on each node.
 
 ![](media/architecture.jpeg)
 
+## Basic Commands
+
+create deployment:
+
+`kubectl create -f helloworld-pod-with-labels.yml`
+  
+get pods:
+
+`kubectl get pods`
+  
+get pods with labels:
+
+`kubectl get pods --show-labels`
+  
+rename label:
+
+`kubectl label pod/helloworld app=helloworldapp --overwrite`
+  
+delete label:
+
+`kubectl label pod/helloworld app-`
+  
+selectors:
+
+```
+  kubectl get pods --selector env=production --show-labels
+  kubectl get pods --selector dev-lead=karthik,env=staging --show-labels
+  kubectl get pods --selector dev-lead!=karthik,env=staging --show-labels
+  kubectl get pods -l 'release-version in (1.0,2.0)' --show-labels
+```
+
+delete pods with label:
+
+`kubectl delete pods -l dev-lead=karthik`
