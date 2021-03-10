@@ -1,11 +1,20 @@
 # kubernetes
 
-**Pod** collections of containers collocated in a single machine
+**Pod** 
 
-**Service** Load balancer that can bring traffic to a collection of pods
+Collections of containers collocated in a single machine
 
-**Deployment** Replicate a container for availability or scale.
+**Service** 
 
-**Kubelet** The primary node agent that runs on each node.
+Load balancer that can bring traffic to a collection of pods
+
+**Deployment** 
+
+Replicate a container for availability or scale.
+
+**Kubelet** 
+
+The primary node agent that runs on each node.
 
 ![](media/architecture.jpeg)
+
