@@ -8,4 +8,4 @@
 
 **Kubelet** The primary node agent that runs on each node.
 
-[](media/architecture.jpeg)
+![](media/architecture.jpeg)
