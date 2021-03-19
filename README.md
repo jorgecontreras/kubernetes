@@ -20,6 +20,12 @@ The primary node agent that runs on each node.
 
 ![](media/architecture.jpeg)
 
+![](media/pod.jpeg)
+
+![](media/deployments.jpeg)
+
+![](media/services.jpeg)
+
 ## Basic Commands
 
 create deployment:
