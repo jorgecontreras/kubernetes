@@ -60,3 +60,13 @@ selectors:
 delete pods with label:
 
 `kubectl delete pods -l dev-lead=jorge`
+
+
+replace service:
+
+`kubectl replace --force -f commerce.yaml`
+
+(GKE) resize cluster size:
+
+`gcloud container clusters resize monarca --num-nodes=3`
+
