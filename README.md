@@ -66,6 +66,17 @@ replace service:
 
 `kubectl replace --force -f commerce.yaml`
 
+deployments:
+
+```
+kubectl set image deployments/commerce commerce-app=jorgecontreras/commerce:0.8 --v 6
+kubectl rollout history deployments commerce
+kubectl describe deployments commerce
+kubectl rollout undo deployment commerce --to-revision=2
+
+```
+
+
 (GKE) resize cluster size:
 
 `gcloud container clusters resize monarca --num-nodes=3`
