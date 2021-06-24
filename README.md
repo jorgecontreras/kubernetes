@@ -76,6 +76,9 @@ kubectl rollout undo deployment commerce --to-revision=2
 
 ```
 
+scale:
+
+`kubectl scale --replicas=10 deployment commerce`
 
 (GKE) resize cluster size:
 
