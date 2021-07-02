@@ -113,7 +113,7 @@ $ kubectl apply -f nginx-pod.yaml
 
 ## Core Concepts
 
-### Creating a pod ans inspecting it
+### Creating a pod and inspecting it
 
 1. Create the namespace `ckad-prep`
 2. 2. In the namespace `ckad-prep` create a new Pod named `mypod` with the image `nginx:2.3.5`. Expose port 80
