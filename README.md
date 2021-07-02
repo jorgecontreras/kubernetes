@@ -84,3 +84,27 @@ scale:
 
 `gcloud container clusters resize monarca --num-nodes=3`
 
+### Imperative approach
+
+```
+$ kubectl create namespace ckad
+$ kubectl run nginx --image=nginx --restart=Never -n ckad
+$ kubectl edit pod/nginx -n ckad
+```
+
+### Declarative approach
+
+Suitable for more elaborate changes, version controlled.
+
+```
+$ vim niginx-pod.yaml
+$ kubectl create -f nginx-pod.yaml
+$ kubectl delete pod/nginx
+```
+### Hybrid approach
+
+```
+$ kubectl run nginx --imagenginx --restart=Never --dry-run -o yaml > nginx-pod.yaml
+$ vim niginx-pod.yaml
+$ kubectl apply -f nginx-pod.yaml
+```
