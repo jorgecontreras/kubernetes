@@ -104,7 +104,7 @@ $ kubectl delete pod/nginx
 ### Hybrid approach
 
 ```
-$ kubectl run nginx --imagenginx --restart=Never --dry-run -o yaml > nginx-pod.yaml
+$ kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml > nginx-pod.yaml
 $ vim niginx-pod.yaml
 $ kubectl apply -f nginx-pod.yaml
 ```
