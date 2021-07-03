@@ -156,3 +156,36 @@ $ kubectl apply -f nginx-pod.yaml
 `kubectl delete ns ckad-prep`
 
 
+### ConfigMaps
+
+1. Create a new file named config.txt with the following environment variables as key/value pairs on each line.
+- DB_URL localhost:3306
+- DB_USERNAME postgres
+
+`vim config.txt`
+
+2. Create a new ConfigMap named db-config from that file
+
+`kubectl create configmap db-config --from-env-file=config.txt`
+
+3. Create a Pod names backend that uses the environment variables from the ConfigMap and runs the container with the image nginx
+
+`kubectl run backend --image=nginx --restart=Never -o yaml --dry-run > backend.yaml`
+`vim backend.yaml`
+
+Insert the envFrom section:
+
+```
+envFrom:
+    - configMapRef:
+        name: db-config
+```
+
+`kubectl create -f backend.yaml`
+
+4. Shell into the Pod and print out the created environment variables. You should find DB_URL and DB_USERNAME with their appropriate values.
+
+`kubectl exec backend -it -- /bin/sh`
+`$ env`
+
+## Configuring a Pod to use a secret
