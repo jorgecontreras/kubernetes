@@ -116,12 +116,33 @@ $ kubectl apply -f nginx-pod.yaml
 ### Creating a pod and inspecting it
 
 1. Create the namespace `ckad-prep`
+`kubectl create ns ckad-prep`
+
 2. In the namespace `ckad-prep` create a new Pod named `mypod` with the image `nginx:2.3.5`. Expose port 80
+`kubectl run mypod --image=nginx:2.3.5 --restart=Never --port=80 -n ckad-prep`
+
 3. Identify the issue with creating the container. Write down the root cause of issue in a file named `pod-error.txt`
+`kubectl describe pod mypod -n ckad-prep`
+
 4. Change the image of the Pod to `nginx:1.15.12`
-5. List the Pod and ensure that the container is running
-6. Log into the container and run the `ls` command. Write down the output. Logout of the container.
-7. Retrieve the IP address of the Pod `mypod`
-8. Run a temporary Pod using the image `busybox`, shell into it adn run a `wget` command against the `nginx` Pod using port 80
-9. Render the logs of Pod `mypod`
-10. Delete the Pod and the namespace
+`kubectl edit pod mypod -n ckad-prep`
+
+6. List the Pod and ensure that the container is running
+`kubectl get pods -n ckad-prep`
+
+7. Log into the container and run the `ls` command. Write down the output. Logout of the container.
+`kubectl exec mypod -it -n ckad-prep -- /bin/sh`
+
+8. Retrieve the IP address of the Pod `mypod`
+`kubectl get pods -n ckad-prep -o wide`
+
+9. Run a temporary Pod using the image `busybox`, shell into it and run a `wget` command against the `nginx` Pod using port 80
+`kubectl run busybox --image=busybox --restart=Never --rm -it -- wget -O- <NGINX-POD-IP>:80`
+
+10. Render the logs of Pod `mypod`
+`kubectl logs mypod -n ckad-prep`
+
+11. Delete the Pod and the namespace
+`kubectl delete ns ckad-prep`
+
+
