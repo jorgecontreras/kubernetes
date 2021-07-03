@@ -170,7 +170,7 @@ $ kubectl apply -f nginx-pod.yaml
 
 3. Create a Pod names backend that uses the environment variables from the ConfigMap and runs the container with the image nginx
 
-`kubectl run backend --image=nginx --restart=Never -o yaml --dry-run > backend.yaml`
+`kubectl run backend --image=nginx --restart=Never -o yaml --dry-run=client > backend.yaml`
 `vim backend.yaml`
 
 Insert the envFrom section:
@@ -189,3 +189,26 @@ envFrom:
 `$ env`
 
 ## Configuring a Pod to use a secret
+
+1. Create a new secret named db-credentials with the key/value pair db-password=passwd
+
+`kubectl create secret generic db-credentials --from-literal=db-password=passwd`
+
+2. Create a Pod named backend that uses the Secret as environment variable named DB_PASSWORD and runs the container with the image nginx
+
+`kubectl run backend --image=nginx --restart=Never --dry-run=client -o yaml > backend.yaml`
+`vim backend.yaml`
+
+```
+env:
+      - name: DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: db-credentials
+            key: db-password
+```
+
+3. Shell into the Pod and print out the created environment variables. you should find DB_PASSWORD variable.
+
+`kubectl exec -it backend -- /bin/sh`
+`env`
