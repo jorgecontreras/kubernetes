@@ -2,7 +2,8 @@
 
 Rolling updates ensure that application changes (such as new container images) are deployed incrementally with minimal downtime.
 
----
+![](../media/deployments.jpeg)
+
 
 ## Performing a Rolling Update
 
