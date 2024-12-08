@@ -25,7 +25,7 @@ Kubernetes is a container orchestration platform designed to automate deployment
 ---
 
 Explore individual components in detail:
-- [kubelet.md](kubelet.md)
-- [etcd.md](etcd.md)
-- [apiserver.md](apiserver.md)
+- [kubelet.md](worker-nodes/kubelet.md)
+- [etcd.md](control-plane/etcd.md)
+- [apiserver.md](control-plane/api-server.md)
 - [kubeconfig.md](kubeconfig.md)
