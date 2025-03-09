@@ -1,6 +1,6 @@
-# CKAD Preparation Guide
+# Kubernetes Certification Preparation Guide
 
-Welcome to the **CKAD (Certified Kubernetes Application Developer)** preparation repository! This project is designed to help aspiring CKAD candidates master Kubernetes concepts, practice with real-world examples, and ace the certification exam.
+Welcome to the **CKAD/CKA/CKS preparation repository! This project is designed to help aspiring CKAD/CKA/CKS candidates master Kubernetes concepts, practice with real-world examples, and ace the certification exams.
 
 ---
 
@@ -46,4 +46,4 @@ Contributions welcome! Feel free to submit pull requests for:
 - New practice questions or examples.
 - Tips and tricks for Kubernetes certification exams.
 
-Happy learning and best of luck with your CKAD certification! 🚀
+Happy learning and best of luck with your Kubernetes journey! 🚀
